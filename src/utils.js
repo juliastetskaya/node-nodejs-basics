@@ -2,7 +2,7 @@ import path from 'path';
 import { stat } from 'fs/promises';
 import { fileURLToPath } from 'url';
 
-export const isFileExists = async (filePath) => {
+export const isExists = async (filePath) => {
     try {
         await stat(filePath);
 

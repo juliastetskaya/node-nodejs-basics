@@ -1,7 +1,7 @@
 import path from 'path';
 import { writeFile } from 'fs/promises';
 
-import { getDirName, isFileExists } from '../utils.js';
+import { getDirName, isExists } from '../utils.js';
 
 
 const __dirname = getDirName(import.meta.url);
@@ -9,9 +9,9 @@ const filePath = path.join(__dirname, 'files', 'fresh.txt');
 
 const create = async () => {
     try {
-        const isExists = await isFileExists(filePath);
+        const isFileExists = await isExists(filePath);
 
-        if (isExists) {
+        if (isFileExists) {
             throw new Error('FS operation failed: file already exists!');
         }
 
